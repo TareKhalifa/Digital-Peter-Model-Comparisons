@@ -246,7 +246,11 @@ if __name__ == '__main__':
             acc=acc_metric,
             speed_inference=len(test_dataset) / (time_b - time_a),
         )
-
+        os.system('cp "../saved_models/iam_T3/best_acc.pt" "/content/gdrive/My Drive/Deep/saved_models/iam_T3/best_acc.pt"')
+        os.system('cp "../saved_models/iam_T3/best_cer.pt" "/content/gdrive/My Drive/Deep/saved_models/iam_T3/best_cer.pt"')
+        os.system('cp "../saved_models/iam_T3/best_wer.pt" "/content/gdrive/My Drive/Deep/saved_models/iam_T3/best_wer.pt"')
+        os.system('cp "../saved_models/iam_T3/last.pt" "/content/gdrive/My Drive/Deep/saved_models/iam_T3/last.pt"')
+        os.system('cp "../saved_models/iam_T3/log.txt" "/content/gdrive/My Drive/Deep/saved_models/iam_T3/log.txt"')
     if args.neptune_project:
         experiment.neptune.log_metric('time_inference', np.mean(time_inference))
         experiment.neptune.log_metric('speed_inference', len(test_dataset) / np.mean(time_inference))  # sample / sec
